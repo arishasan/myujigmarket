@@ -34,9 +34,9 @@ class PesananController extends Controller
     public function index(Request $req){
 
         $query = TransaksiModel::orderBy('created_at', 'DESC');
-        if(isset($req->dari)){
-            $query->whereBetween('tgl_transaksi', [$req->dari, $req->ke]);
-        }
+        // if(isset($req->dari)){
+        //     $query->whereBetween('tgl_transaksi', [$req->dari, $req->ke]);
+        // }
 
         $data = array(
             'transaksi' => $query->get(),

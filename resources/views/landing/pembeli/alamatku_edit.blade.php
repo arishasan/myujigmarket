@@ -7,7 +7,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -23,13 +23,16 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
     
     <div class="container">
         @include('admin.parts.feedback')
+
+        <h3>Edit Alamat</h3>
+        <hr>
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -121,7 +124,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-6"><a href="{{ url('customer/akun/pengaturan/alamat') }}" class="btn text-white"><i class="fa fa-arrow-left"></i></a></div>
-                                    <div class="col-lg-6 text-right"><button class="btn">Simpan</button></div>
+                                    <div class="col-lg-6 text-right"><button class="btn btn-success">Simpan</button></div>
                                 </div>
 
                             </form>

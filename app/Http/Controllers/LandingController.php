@@ -26,7 +26,7 @@ class LandingController extends Controller
     public function index(){
         $data = array(
             'banner' => BannerModel::all(),
-            'new_produk' => ProdukModel::select(DB::raw("produk.*, kategori_produk.nama as `nama_kategori`"))->leftJoin('kategori_produk', 'kategori_produk.id','=','produk.id_kategori')->where('status', 1)->where(DB::raw('MONTH(produk.created_at)'), date('m'))->orderBy('produk.id', 'DESC')->limit(8)->get(),
+            'new_produk' => ProdukModel::select(DB::raw("produk.*, kategori_produk.nama as `nama_kategori`"))->leftJoin('kategori_produk', 'kategori_produk.id','=','produk.id_kategori')->where('status', 1)->orderBy('produk.id', 'DESC')->limit(12)->get()->shuffle(),
             'rekomendasi' => ProdukModel::select(DB::raw("produk.*, kategori_produk.nama as `nama_kategori`"))->leftJoin('kategori_produk', 'kategori_produk.id','=','produk.id_kategori')->where('status', 1)->inRandomOrder()->limit(10)->get(),
             'promo' => ProdukModel::where('status', 1)->where('is_promo', 1)->orderBy('value_promo', 'DESC')->limit(1)->get(),
             'dilihat' => ProdukModel::where('status', 1)->orderBy('dilihat', 'DESC')->limit(1)->get(),

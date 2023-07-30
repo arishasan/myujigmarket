@@ -31,7 +31,7 @@
 
         @include('admin.parts.feedback')
 
-        <form method="POST" action="?">
+        <!-- <form method="POST" action="?">
             @csrf
             <div class="card">
                 <div class="card-body">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> -->
         
         <div>
           <div class="card card-primary card-outline card-outline-tabs">

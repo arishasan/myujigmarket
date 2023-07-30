@@ -49,6 +49,7 @@
                     </div>
                 </div>
             </div>
+            <br/>
             <div class="quantity">
                 <!-- Input Order -->
                 <div class="input-group">
@@ -57,7 +58,7 @@
                             <i class="ti-minus"></i>
                         </button>
                     </div> --}}
-                    <input type="number" name="qty" id="preview_qty" class="input-number"  min="1" max="{{ $produk->stok }}" value="{{ $produk->qty }}">
+                    <input type="number" name="qty" id="preview_qty" class="input-number form-control"  min="1" max="{{ $produk->stok }}" value="{{ $produk->qty }}">
                     {{-- <div class="button plus">
                         <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="qty">
                             <i class="ti-plus"></i>
@@ -66,17 +67,9 @@
                 </div>
                 <!--/ End Input Order -->
             </div>
+            <br/>
             <div class="add-to-cart">
-                <button type="button" class="btn" id="btn_add_cart" onclick="saveCart()">Simpan</a>
-            </div>
-            <div class="default-social">
-                <h4 class="share-now">Share:</h4>
-                <ul>
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
-                </ul>
+                <button type="button" class="btn btn-primary form-control text-white" id="btn_add_cart" onclick="saveCart()">Simpan</a>
             </div>
         </div>
     </div>

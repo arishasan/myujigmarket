@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -16,28 +16,20 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <section class="product-area shop-sidebar shop section">
     <div class="container">
         
         <div class="row no-gutters">
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                <!-- Product Slider -->
-                    <div class="product-gallery">
-                        <div class="single-slider">
-                            <img src="{{ asset('assets/avatar.png') }}" alt="#" style="width: 100%; height: 100%; border-radius: 50%;">
-                        </div>
-                    </div>
-                <!-- End Product slider -->
-            </div>
-            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 
                 @include('admin.parts.feedback')
 
                 <div class="quickview-content">
-                    <h2 style="color: #F7941D"><i class="fa fa-pencil"></i> &nbsp; Edit Profile</h2>
+                    <h2 style="color: #F7941D"><i class="ti ti-pencil"></i> &nbsp; Edit Profile</h2>
                     <br/>
                     
                     <form action="{{ route('simpan-customer') }}" method="POST">
@@ -97,8 +89,8 @@
                         </div>
                         <br/>
                         <div class="add-to-cart">
-                            <button class="btn" onclick="addCart()"><i class="fa fa-save"></i> Simpan</button>
-                            <a href="{{ route('alamatku') }}" class="btn">Pengaturan Alamat <i class="fa fa-arrow-right"></i></a>
+                            <button class="btn btn-success" onclick="addCart()"><i class="fa fa-save"></i> Simpan</button>
+                            <a href="{{ route('alamatku') }}" class="btn btn-primary">Pengaturan Alamat <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </form>
                     

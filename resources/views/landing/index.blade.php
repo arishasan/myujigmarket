@@ -1,295 +1,221 @@
 @extends('landing.mainlayout')
 
 @section('content')
-<!-- Slider Area -->
-<section class="hero-slider">
-    <!-- Single Slider -->
-    <div class="product-gallery">
-        @if(count($banner) > 1)
-        <div class="quickview-slider-active">
-        @endif
-            @foreach($banner as $b)
-            <div class="single-slider">
-                <img src="{{ asset('') }}/{{ $b->image }}" alt="#" style="width: 100%; height: 100%">
+
+<!-- START SECTION SHOP -->
+<div class="section small_pt pb_70">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+            	<div class="heading_s1 text-center">
+                	<h2>Our Products</h2>
+                </div>
             </div>
+		</div>
+        <div class="row shop_container">
+            @foreach($new_produk as $np => $vnp)
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="product">
+                    @if($vnp->stok <= 0)
+                    <span class="pr_flash bg-danger">Out of Stock</span>
+                    @endif
+                    <div class="product_img">
+                        <a href="{{ url('landing/produk/detail') }}/{{ $vnp->slug }}/{{ md5($vnp->id) }}">
+                            <img src="{{ asset('') }}/{{ $vnp->image }}" alt="product_img1">
+                        </a>
+                        <!-- <div class="product_action_box">
+                            <ul class="list_none pr_action_btn">
+                                <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                <li><a href="#"><i class="icon-heart"></i></a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="product_info">
+                        <h6 class="product_title"><a href="{{ url('landing/produk/detail') }}/{{ $vnp->slug }}/{{ md5($vnp->id) }}">{{ $vnp->nama_produk }}</a></h6>
+                        <div class="product_price">
+                            
+                            @if($vnp->is_promo == 1)
+                            <?php
+                                $potongan = ($vnp->harga_jual * $vnp->value_promo) / 100;
+                            ?>
+
+                            <span class="price">Rp. {{ number_format($vnp->harga_jual - $potongan) }}</span>
+                            <del>Rp. {{ number_format($vnp->harga_jual) }}</del>
+                            <div class="on_sale">
+                                <span>{{ $vnp->value_promo }}% Off</span>
+                            </div>
+
+                            @else
+                            <span class="price">Rp. {{ number_format($vnp->harga_jual) }}</span>
+                            @endif
+                        </div>
+                        <div class="rating_wrap">
+                            {!! App\Models\HelperModel::getStars(App\Models\HelperModel::getReviewProduk('rate', $vnp->id)) !!}
+                        </div>
+                        <div class="pr_desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                        </div>
+                        <!-- <div class="pr_switch_wrap">
+                            <div class="product_color_switch">
+                                <span class="active" data-color="#87554B"></span>
+                                <span data-color="#333333"></span>
+                                <span data-color="#DA323F"></span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
             @endforeach
-        @if(count($banner) > 1)
-        </div>
-        @endif
-    </div>
-    <!--/ End Single Slider -->
-</section>
-<!--/ End Slider Area -->
-
-<!-- Start Small Banner  -->
-{{-- <section class="small-banner section">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Single Banner  -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-banner">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
-                    <div class="content">
-                        <p>Man's Collectons</p>
-                        <h3>Summer travel <br> collection</h3>
-                        <a href="#">Discover Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /End Single Banner  -->
-            <!-- Single Banner  -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-banner">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
-                    <div class="content">
-                        <p>Bag Collectons</p>
-                        <h3>Awesome Bag <br> 2020</h3>
-                        <a href="#">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /End Single Banner  -->
-            <!-- Single Banner  -->
-            <div class="col-lg-4 col-12">
-                <div class="single-banner tab-height">
-                    <img src="https://via.placeholder.com/600x370" alt="#">
-                    <div class="content">
-                        <p>Flash Sale</p>
-                        <h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-                        <a href="#">Discover Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /End Single Banner  -->
+            
+            
         </div>
     </div>
-</section> --}}
-<!-- End Small Banner -->
-
-<!-- Start Product Area -->
-<div class="product-area section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2>Produk Baru Bulan Ini</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="product-info">
-                        <div class="tab-single">
-                            <div class="row">
-                                
-                                @foreach($new_produk as $np => $vnp)
-                                <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="{{ url('landing/produk/detail') }}/{{ $vnp->slug }}/{{ md5($vnp->id) }}">
-                                                <img class="default-img" src="{{ asset('') }}/{{ $vnp->image }}" alt="#">
-                                                <img class="hover-img" src="{{ asset('') }}/{{ $vnp->image }}" alt="#">
-                                                @if($vnp->stok <= 0)
-                                                <span class="out-of-stock">Habis</span>
-                                                @else
-                                                
-                                                    @if($vnp->is_promo == 1)
-                                                    <span class="price-dec">Potongan {{ $vnp->value_promo }}%</span>
-                                                    @endif
-
-                                                @endif
-                                            </a>
-                                            <div class="button-head">
-                                                <div class="product-action">
-                                                    <a title="Wishlist" href="javascript:void(0)" data-id="{{ $vnp->id }}" class="product_wishlist"><i class=" ti-heart {{ App\Models\HelperModel::inWishlist($vnp->id) ? 'text-danger' : '' }} "></i><span>Add to Wishlist</span></a>
-                                                </div>
-                                                <div class="product-action-2">
-                                                    <a title="Add to cart" class="product_detail" data-id="{{ $vnp->id }}" href="javascript:void(0)">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <small>{{ $vnp->nama_kategori }}</small>
-                                            <h3><a href="{{ url('landing/produk/detail') }}/{{ $vnp->slug }}/{{ md5($vnp->id) }}">{{ $vnp->nama_produk }}</a></h3>
-                                            {!! App\Models\HelperModel::getStars(App\Models\HelperModel::getReviewProduk('rate', $vnp->id)) !!}
-                                            <div class="product-price">
-                                                @if($vnp->is_promo == 1)
-                                                <?php
-                                                    $potongan = ($vnp->harga_jual * $vnp->value_promo) / 100;
-                                                ?>
-                                                <span class="old">Rp. {{ number_format($vnp->harga_jual) }}</span>
-                                                <span>Rp. {{ number_format($vnp->harga_jual - $potongan) }}</span>
-                                                @else
-                                                <span>Rp. {{ number_format($vnp->harga_jual) }}</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 </div>
-<!-- End Product Area -->
+<!-- END SECTION SHOP -->
 
-<!-- Start Midium Banner  -->
-@if(count($promo) > 0 || count($dilihat) > 0)
 
-<section class="midium-banner">
-    <div class="container">
-        <div class="row">
-            <!-- Single Banner  -->
-            @if(count($promo) > 0)
-            <div class="col-lg-{{ count($dilihat) == 0 ? 12 : 6 }} col-md-6 col-12">
-                <div class="single-banner">
-                    <img src="{{ asset('') }}/{{ $promo[0]->image }}" alt="#">
-                    <div class="content">
-                        <p>Promo Paling Tinggi!</p>
-                        <h3>{{ App\Models\HelperModel::truncate($promo[0]->nama_produk, 30) }} <br>Up to<span> {{ $promo[0]->value_promo }}%</span></h3>
-                        <a href="{{ url('landing/produk/detail') }}/{{ $promo[0]->slug }}/{{ md5($promo[0]->id) }}">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            @endif
-            <!-- /End Single Banner  -->
-            <!-- Single Banner  -->
-            @if(count($dilihat) > 0)
-            <div class="col-lg-{{ count($promo) == 0 ? 12 : 6 }} col-md-6 col-12">
-                <div class="single-banner">
-                    <img src="{{ asset('') }}/{{ $dilihat[0]->image }}" alt="#">
-                    <div class="content">
-                        <p>Paling Sering Dilihat!</p>
-                        <h3>{{ App\Models\HelperModel::truncate($dilihat[0]->nama_produk, 30) }} <br>Dilihat<span> {{ $dilihat[0]->dilihat }}x</span></h3>
-                        <a href="{{ url('landing/produk/detail') }}/{{ $dilihat[0]->slug }}/{{ md5($dilihat[0]->id) }}">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            @endif
-            <!-- /End Single Banner  -->
-        </div>
-    </div>
-</section>
-
-@endif
-<!-- End Midium Banner -->
-
-<!-- Start Most Popular -->
-<div class="product-area most-popular section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>Rekomendasi</h2>
+<!-- START SECTION TESTIMONIAL -->
+<div class="section bg_redon">
+	<div class="container">
+    	<div class="row justify-content-center">
+        	<div class="col-md-6">
+            	<div class="heading_s1 text-center">
+                	<h2>Our Client Say!</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="owl-carousel popular-slider">
-                    @foreach($rekomendasi as $r => $rnp)
-
-                    <!-- Start Single Product -->
-                    <div class="single-product">
-                        <div class="product-img">
-                            <a href="{{ url('landing/produk/detail') }}/{{ $rnp->slug }}/{{ md5($rnp->id) }}">
-                                <img class="default-img" src="{{ asset('') }}/{{ $rnp->image }}" alt="#">
-                                <img class="hover-img" src="{{ asset('') }}/{{ $rnp->image }}" alt="#">
-                                @if($rnp->stok <= 0)
-                                <span class="out-of-stock">Habis</span>
-                                @else
-                                
-                                    @if($rnp->is_promo == 1)
-                                    <span class="price-dec">Potongan {{ $rnp->value_promo }}%</span>
-                                    @endif
-
-                                @endif
-                            </a>
-                            <div class="button-head">
-                                <div class="product-action">
-                                    <a title="Wishlist" href="javascript:void(0)" data-id="{{ $rnp->id }}" class="product_wishlist"><i class=" ti-heart {{ App\Models\HelperModel::inWishlist($rnp->id) ? 'text-danger' : '' }} "></i><span>Add to Wishlist</span></a>
-                                </div>
-                                <div class="product-action-2">
-                                    <a title="Add to cart" class="product_detail" data-id="{{ $rnp->id }}" href="javascript:void(0)">Add to cart</a>
-                                </div>
-                            </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+            	<div class="testimonial_wrap testimonial_style1 carousel_slider owl-carousel owl-theme nav_style2" data-nav="true" data-dots="false" data-center="true" data-loop="true" data-autoplay="true" data-items='1'>
+                	<div class="testimonial_box">
+                    	<div class="testimonial_desc">
+                        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.</p>
                         </div>
-                        <div class="product-content">
-                            <small>{{ $rnp->nama_kategori }}</small>
-                            <h3><a href="{{ url('landing/produk/detail') }}/{{ $rnp->slug }}/{{ md5($rnp->id) }}">{{ $rnp->nama_produk }}</a></h3>
-                            {!! App\Models\HelperModel::getStars(App\Models\HelperModel::getReviewProduk('rate', $rnp->id)) !!}
-                            <div class="product-price">
-                                @if($rnp->is_promo == 1)
-                                <?php
-                                    $potongan = ($rnp->harga_jual * $rnp->value_promo) / 100;
-                                ?>
-                                <span class="old">Rp. {{ number_format($rnp->harga_jual) }}</span>
-                                <span>Rp. {{ number_format($rnp->harga_jual - $potongan) }}</span>
-                                @else
-                                <span>Rp. {{ number_format($rnp->harga_jual) }}</span>
-                                @endif
+                        <div class="author_wrap">
+                            <div class="author_img">
+                                <img src="{{ asset('new') }}/images/user_img1.jpg" alt="user_img1" />
+                            </div>
+                            <div class="author_name">
+                                <h6>Lissa Castro</h6>
+                                <span>Designer</span>
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Product -->
-                    
-                    @endforeach
-
+                    <div class="testimonial_box">
+                    	<div class="testimonial_desc">
+                        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.</p>
+                        </div>
+                        <div class="author_wrap">
+                            <div class="author_img">
+                                <img src="{{ asset('new') }}/images/user_img2.jpg" alt="user_img2" />
+                            </div>
+                            <div class="author_name">
+                                <h6>Alden Smith</h6>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_box">
+                    	<div class="testimonial_desc">
+                        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.</p>
+                        </div>
+                        <div class="author_wrap">
+                            <div class="author_img">
+                                <img src="{{ asset('new') }}/images/user_img3.jpg" alt="user_img3" />
+                            </div>
+                            <div class="author_name">
+                                <h6>Daisy Lana</h6>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_box">
+                    	<div class="testimonial_desc">
+                        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.</p>
+                        </div>
+                        <div class="author_wrap">
+                            <div class="author_img">
+                                <img src="{{ asset('new') }}/images/user_img4.jpg" alt="user_img4" />
+                            </div>
+                            <div class="author_name">
+                                <h6>John Becker</h6>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Most Popular Area -->
+<!-- END SECTION TESTIMONIAL -->
 
-<!-- Start Shop Services Area -->
-<section class="shop-services section home">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-rocket"></i>
-                    <h4>Gratis Ongkir</h4>
-                    <p>Minimal pembelian di atas Rp. 100.000.</p>
+<!-- START SECTION SHOP INFO -->
+<div class="section pb_70">
+    	<div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-4">	
+                    <div class="icon_box icon_box_style1">
+                        <div class="icon">
+                            <i class="flaticon-shipped"></i>
+                        </div>
+                        <div class="icon_box_content">
+                            <h5>Free Delivery</h5>
+                            <p>If you are going to use of Lorem, you need to be sure there anything</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-reload"></i>
-                    <h4>Garansi Pengembalian</h4>
-                    <p>Garansi 30 hari dari pembelian.</p>
+                <div class="col-lg-4">	
+                    <div class="icon_box icon_box_style1">
+                        <div class="icon">
+                            <i class="flaticon-money-back"></i>
+                        </div>
+                        <div class="icon_box_content">
+                            <h5>30 Day Return</h5>
+                            <p>If you are going to use of Lorem, you need to be sure there anything</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-lock"></i>
-                    <h4>Secure Payment</h4>
-                    <p>100% pembayaran aman.</p>
+                <div class="col-lg-4">	
+                    <div class="icon_box icon_box_style1">
+                        <div class="icon">
+                            <i class="flaticon-support"></i>
+                        </div>
+                        <div class="icon_box_content">
+                            <h5>27/4 Support</h5>
+                            <p>If you are going to use of Lorem, you need to be sure there anything</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="ti-tag"></i>
-                    <h4>Harga Terbaik</h4>
-                    <p>Jaminan harga terbaik dan kompetitif.</p>
-                </div>
-                <!-- End Single Service -->
             </div>
         </div>
     </div>
-</section>
-<!-- End Shop Services Area -->
+<!-- END SECTION SHOP INFO -->
+
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->
+<div class="section bg_default small_pt small_pb">
+	<div class="container">	
+    	<div class="row align-items-center">	
+            <div class="col-md-6">
+                <div class="heading_s1 mb-md-0 heading_light">
+                    <h3>Subscribe Our Newsletter</h3>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="newsletter_form">
+                    <form>
+                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
+                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 
 <!-- Modal -->

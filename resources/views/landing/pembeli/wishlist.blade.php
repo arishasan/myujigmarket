@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
@@ -57,7 +57,7 @@
                             ?>
 
                             <tr>
-                                <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#"></td>
+                                <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#" style="width: 100px; height: 100px"></td>
                                 <td class="product-des" data-title="Description">
                                     <p class="product-name"><a href="{{ url('landing/produk/detail') }}/{{ $v->slug }}/{{ md5($v->id_produk) }}">{{ $v->nama_produk }}</a></p>
                                     <p class="product-des"><small>{{ App\Models\HelperModel::truncate($v->deskripsi, 70) }}</small></p>

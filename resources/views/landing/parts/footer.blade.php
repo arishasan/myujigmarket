@@ -1,86 +1,99 @@
-<footer class="footer">
-    <!-- Footer Top -->
-    <div class="footer-top section">
+<footer class="footer_dark">
+	<div class="footer_top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer about">
-                        <div class="logo">
-                            <a href="index.html"><img src="{{ asset('assets') }}/logob.png" alt="#"></a>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                	<div class="widget">
+                        <div class="footer_logo">
+                            <a href="#"><img src="{{ asset('new') }}/images/mm.png" alt="logo"/></a>
                         </div>
-                        <p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        <p class="call">Punya Pertanyaan? Telp kami 24/7<span><a href="tel:123456789">+62 831 1234 5678</a></span></p>
+                        <p>If you are going to use of Lorem Ipsum need to be sure there isn't hidden of text</p>
                     </div>
-                    <!-- End Single Widget -->
-                </div>
-                <div class="col-lg-2 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer links">
-                        <h4>Informasi</h4>
-                        <ul>
+                    <div class="widget">
+                        <ul class="social_icons social_white">
+                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                        </ul>
+                    </div>
+        		</div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                	<div class="widget">
+                        <h6 class="widget_title">Useful Links</h6>
+                        <ul class="widget_links">
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Location</a></li>
+                            <li><a href="#">Affiliates</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
-                    <!-- End Single Widget -->
                 </div>
-                <div class="col-lg-2 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer links">
-                        <h4>Customer Service</h4>
-                        <ul>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Money-back</a></li>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                	<div class="widget">
+                        <h6 class="widget_title">Category</h6>
+                        <ul class="widget_links">
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Woman</a></li>
+                            <li><a href="#">Kids</a></li>
+                            <li><a href="#">Best Saller</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                	<div class="widget">
+                        <h6 class="widget_title">My Account</h6>
+                        <ul class="widget_links">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Discount</a></li>
                             <li><a href="#">Returns</a></li>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Orders History</a></li>
+                            <li><a href="#">Order Tracking</a></li>
                         </ul>
                     </div>
-                    <!-- End Single Widget -->
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Single Widget -->
-                    <div class="single-footer social">
-                        <h4>Alamat</h4>
-                        <!-- Single Widget -->
-                        <div class="contact">
-                            <ul>
-                                <li>Jl. Tlk. Betung I No.45A, Kb. Melati, Kecamatan Tanah Abang</li>
-                                <li>Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10230</li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                        <ul>
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-flickr"></i></a></li>
-                            <li><a href="#"><i class="ti-instagram"></i></a></li>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                	<div class="widget">
+                        <h6 class="widget_title">Contact Info</h6>
+                        <ul class="contact_info contact_info_light">
+                            <li>
+                                <i class="ti-location-pin"></i>
+                                <p>Universitas Al Azhar Indonesia
+                                    Komplek Masjid Agung Al Azhar
+                                    Jl. Sisingamangaraja, Kebayoran Baru
+                                    Jakarta Selatan 12110</p>
+                            </li>
+                            <li>
+                                <i class="ti-email"></i>
+                                <a href="mailto:info@sitename.com">admin@myujigmarket.com</a>
+                            </li>
+                            <li>
+                                <i class="ti-mobile"></i>
+                                <p>+ 62 213 456 789</p>
+                            </li>
                         </ul>
                     </div>
-                    <!-- End Single Widget -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Footer Top -->
-    <div class="copyright">
+    <div class="bottom_footer border-top-tran">
         <div class="container">
-            <div class="inner">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div class="left">
-                            <p>Copyright © 2023 <a href="#" target="_blank">NUSANTARA E-Commerce</a>  -  All Rights Reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="right">
-                            {{-- <img src="{{ asset('landing') }}/images/payments.png" alt="#"> --}}
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-md-0 text-center text-md-left">© 2023 All Rights Reserved by Myujig Market</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer_payment text-center text-lg-right">
+                        <li><a href="#"><img src="{{ asset('new') }}/images/visa.png" alt="visa"></a></li>
+                        <li><a href="#"><img src="{{ asset('new') }}/images/discover.png" alt="discover"></a></li>
+                        <li><a href="#"><img src="{{ asset('new') }}/images/master_card.png" alt="master_card"></a></li>
+                        <li><a href="#"><img src="{{ asset('new') }}/images/paypal.png" alt="paypal"></a></li>
+                        <li><a href="#"><img src="{{ asset('new') }}/images/amarican_express.png" alt="amarican_express"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <section class="product-area shop-sidebar shop section">
@@ -31,11 +31,13 @@
                             <div class="single-slider">
                                 <img src="{{ asset('') }}/{{ $produk->image }}" alt="#">
                             </div>
-                            <div class="single-slider">
-                                <img src="{{ asset('') }}/{{ $produk->image2 }}" alt="#">
-                            </div>
-                            <div class="single-slider">
-                                <img src="{{ asset('') }}/{{ $produk->image3 }}" alt="#">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img src="{{ asset('') }}/{{ $produk->image2 }}" alt="#">
+                                </div>
+                                <div class="col-lg-6">
+                                    <img src="{{ asset('') }}/{{ $produk->image3 }}" alt="#">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,35 +82,18 @@
                             </div>
                         </div>
                     </div>
+                    <br/>
                     <div class="quantity">
                         <!-- Input Order -->
                         <div class="input-group">
-                            <div class="button minus">
-                                <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="qty">
-                                    <i class="ti-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" name="qty" id="preview_qty" class="input-number" data-min="1" data-max="{{ $produk->stok }}" value="1">
-                            <div class="button plus">
-                                <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="qty">
-                                    <i class="ti-plus"></i>
-                                </button>
-                            </div>
+                            <input type="number" min="1" name="qty" id="preview_qty" class="input-number form-control" max="{{ $produk->stok }}" value="1">
                         </div>
                         <!--/ End Input Order -->
                     </div>
+                    <br/>
                     <div class="add-to-cart">
-                        <a href="javascript:void(0)" class="btn" onclick="addCart()">Add to cart</a>
-                        <a href="javascript:void(0)" class="btn min product_wishlist" data-id="{{ $produk->id }}" ><i class="ti-heart {{ App\Models\HelperModel::inWishlist($produk->id) ? 'text-danger' : '' }}"></i></a>
-                    </div>
-                    <div class="default-social">
-                        <h4 class="share-now">Share:</h4>
-                        <ul>
-                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
+                        <a href="javascript:void(0)" class="btn btn-primary" onclick="addCart()">Add to cart</a>
+                        <a href="javascript:void(0)" class="btn btn-warning min product_wishlist" data-id="{{ $produk->id }}" ><i class="ti-heart {{ App\Models\HelperModel::inWishlist($produk->id) ? 'text-danger' : '' }}"></i></a>
                     </div>
                     <br/>
                     <div class="card">

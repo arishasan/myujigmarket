@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -16,12 +16,14 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
     <div class="container">
         @include('admin.parts.feedback')
+        <h3>Keranjang Belanja</h3>
+        <br/>
         <div class="row">
             <div class="col-12">
                 <!-- Shopping Summery -->
@@ -65,7 +67,7 @@
                             ?>
 
                             <tr>
-                                <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#"></td>
+                                <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#" style="width: 100px; height: 100px"></td>
                                 <td class="product-des" data-title="Description">
                                     <p class="product-name"><a href="{{ url('landing/produk/detail') }}/{{ $v->slug }}/{{ md5($v->id_produk) }}">{{ $v->nama_produk }}</a></p>
                                     <p class="product-des"><small>{{ App\Models\HelperModel::truncate($v->deskripsi, 70) }}</small></p>
@@ -82,8 +84,8 @@
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div> --}}
-                                        <input type="text" name="qty[{{ $k }}]" class="input-number"  data-min="1" data-max="{{ $v->stok }}" value="{{ $v->qty }}" readonly>
-                                        <div class="button plus">
+                                        <input type="text" name="qty[{{ $k }}]" class="input-number form-control"  data-min="1" data-max="{{ $v->stok }}" value="{{ $v->qty }}" readonly>
+                                        <div class="">
                                             <button type="button" class="btn btn-primary btn-number edit_keranjang" data-id="{{ $v->id }}">
                                                 <i class="ti-pencil"></i>
                                             </button>
@@ -142,9 +144,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br/>
                                 <div class="button5">
-                                    <a href="{{ route('do-checkout') }}" class="btn">Checkout</a>
-                                    <a href="{{ url('/') }}" class="btn">Lanjut Belanja</a>
+                                    <center>
+                                    <a href="{{ route('do-checkout') }}" class="btn btn-success">Checkout</a>
+                                    <a href="{{ url('/') }}" class="btn btn-warning">Lanjut Belanja</a>
+                                    </center>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +163,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modal_product" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>

@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('admin') }}" class="brand-link">
-      <img src="{{ asset('assets') }}/logoa.png" alt="AdminLTE Logo" class="brand-image">
-      <span class="brand-text font-weight-light">Admin Area</span>
+      <img src="{{ asset('new') }}/images/mm.png" alt="AdminLTE Logo" class="brand-image">
     </a>
 
     <!-- Sidebar -->
@@ -42,24 +41,24 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="{{ route('rekening') }}" class="nav-link {{ Request::is('master/rekening') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekening</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="{{ route('banner') }}" class="nav-link {{ Request::is('master/banner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Banner</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="{{ route('kode-promo') }}" class="nav-link {{ Request::is('master/kode_promo') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kode Promo</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="{{ route('kategori') }}" class="nav-link {{ Request::is('master/kategori') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>

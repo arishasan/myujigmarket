@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nusantara E-Commerce Admin | {{ @ucwords(str_replace("/", " ", Request::path())) }}</title>
+  <title>Myujig Market Admin | {{ @ucwords(str_replace("/", " ", Request::path())) }}</title>
 
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 

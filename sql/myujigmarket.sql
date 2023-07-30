@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 20, 2023 at 02:44 PM
+-- Host: 127.0.0.1
+-- Generation Time: Jul 30, 2023 at 03:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_ecommerce`
+-- Database: `myujigmarket`
 --
 
 -- --------------------------------------------------------
@@ -49,8 +49,7 @@ CREATE TABLE `alamat` (
 
 INSERT INTO `alamat` (`id`, `label`, `alamat`, `provinsi`, `kota`, `kecamatan`, `kode_pos`, `no_hp`, `penerima`, `is_alamat_utama`, `created_at`, `updated_at`, `id_user`) VALUES
 (3, 'Rumah Pertama', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', 9, 104, 1416, '43217', '0838123833', 'Aris Hasan', 1, '2023-06-17 15:11:24', '2023-06-20 04:40:13', 6),
-(5, 'Rumah 5', 'Bandung', 9, 24, 370, '40721', NULL, NULL, 0, '2023-06-19 04:39:20', '2023-06-19 04:39:48', 6),
-(6, 'testtt', 'teatastst', 8, 156, 2130, '36111', '02391239123', 'Ini Penerima', 0, '2023-06-20 04:40:04', '2023-06-20 04:40:04', 6);
+(5, 'Rumah 5', 'Bandung', 9, 24, 370, '40721', NULL, NULL, 0, '2023-06-19 04:39:20', '2023-06-19 04:39:48', 6);
 
 -- --------------------------------------------------------
 
@@ -90,21 +89,6 @@ CREATE TABLE `det_transaksi` (
   `total` double DEFAULT NULL,
   `catatan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `det_transaksi`
---
-
-INSERT INTO `det_transaksi` (`id`, `id_transaksi`, `id_produk`, `harga_satuan`, `berat_satuan`, `qty`, `total`, `catatan`) VALUES
-(1, 1, 6, 8000000, 800, 1, 8000000, 'test catatan dulu yah'),
-(2, 1, 8, 104000, 100, 4, 416000, 'testttt'),
-(3, 1, 7, 255000, 600, 1, 255000, 'mouse nya 1'),
-(4, 1, 5, 12000000, 800, 1, 12000000, 'Testt'),
-(5, 2, 1, 12350000, 3000, 2, 24700000, 'testtt'),
-(6, 3, 8, 104000, 100, 1, 104000, NULL),
-(7, 4, 7, 255000, 600, 2, 510000, NULL),
-(8, 5, 7, 255000, 600, 1, 255000, NULL),
-(9, 6, 5, 12000000, 800, 1, 12000000, NULL);
 
 -- --------------------------------------------------------
 
@@ -280,11 +264,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `id_kategori`, `kode_produk`, `nama_produk`, `image`, `image2`, `image3`, `slug`, `deskripsi`, `is_new`, `harga_beli`, `harga_jual`, `is_promo`, `value_promo`, `stok`, `berat_gram`, `status`, `created_at`, `updated_at`, `create_user`, `dilihat`) VALUES
-(1, 1, 'BR.06.001', 'Vivobook Ultra 14 K413', 'uploads/BR.06.001__1.png', 'uploads/BR.06.001__2.png', 'uploads/BR.06.001__3.png', 'vivobook-ultra-14-k413', 'Laptop Vivobook Seri K413FQ', 1, 11000000, 12350000, 0, 0, 8, 3000, 1, '2023-06-05 05:33:44', '2023-06-19 10:43:32', 1, 14),
+(1, 1, 'BR.06.001', 'Vivobook Ultra 14 K413', 'uploads/BR.06.001__1.png', 'uploads/BR.06.001__2.png', 'uploads/BR.06.001__3.png', 'vivobook-ultra-14-k413', 'Laptop Vivobook Seri K413FQ', 1, 11000000, 12350000, 0, 0, 8, 3000, 1, '2023-06-05 05:33:44', '2023-07-30 07:47:08', 1, 15),
 (5, 1, 'BR.06.002', 'Asus ROG Phone 5 - 12GB/256GB', 'uploads/BR.06.002__1.png', 'uploads/BR.06.002__2.png', 'uploads/BR.06.002__3.png', 'asus-rog-phone-5-12gb256gb', 'Bermain maksimal dengan ROG Phone 5, ponsel gaming tanpa hambatan. Didukung untuk menang oleh Qualcomm® Snapdragon™ 888 5G Mobile Platform terbaru, keajaiban futuristik ini mengemas layar 144 Hz/1 ms yang luar biasa responsif, sistem baterai monster 6000 mAh1, kontrol game AirTrigger 5 yang ditingkatkan secara besar-besaran, dan sistem audio GameFX kami yang ikonik. ROG Phone 5 akan membawa game Anda ke dimensi baru — jika Anda berani.', 1, 11000000, 12000000, 0, 0, 7, 800, 1, '2023-06-13 02:10:03', '2023-06-20 16:11:36', 1, 4),
-(6, 1, 'BR.06.003', 'iPhone 12 - 128 GB', 'uploads/BR.06.003__1.webp', 'assets/noimage.png', 'assets/noimage.png', 'iphone-12-128-gb', 'iPhone 12. Layar Super Retina XDR 6,1 inci yang begitu cerah.1 Ceramic Shield dengan ketahanan jatuh empat kali lebih baik.2 Fotografi pencahayaan rendah yang menakjubkan dengan mode Malam di semua kamera. Mampu merekam, mengedit, dan memutar video sekelas sinema dengan Dolby Vision. Chip A14 Bionic yang andal. Dan aksesori MagSafe baru untuk kemudahan pemasangan dan pengisian daya nirkabel yang lebih cepat.3 Saatnya bersenang-senang.', 0, 8000000, 8000000, 0, 0, 5, 800, 1, '2023-06-13 02:12:36', '2023-06-20 16:11:36', 1, 1),
+(6, 1, 'BR.06.003', 'iPhone 12 - 128 GB', 'uploads/BR.06.003__1.webp', 'assets/noimage.png', 'assets/noimage.png', 'iphone-12-128-gb', 'iPhone 12. Layar Super Retina XDR 6,1 inci yang begitu cerah.1 Ceramic Shield dengan ketahanan jatuh empat kali lebih baik.2 Fotografi pencahayaan rendah yang menakjubkan dengan mode Malam di semua kamera. Mampu merekam, mengedit, dan memutar video sekelas sinema dengan Dolby Vision. Chip A14 Bionic yang andal. Dan aksesori MagSafe baru untuk kemudahan pemasangan dan pengisian daya nirkabel yang lebih cepat.3 Saatnya bersenang-senang.', 0, 8000000, 8000000, 0, 0, 4, 800, 1, '2023-06-13 02:12:36', '2023-07-30 08:24:51', 1, 17),
 (7, 8, 'BR.06.004', 'Mouse Logitech G102', 'uploads/BR.06.004__1.jpg', 'uploads/BR.06.004__2.jpg', 'uploads/BR.06.004__3.jpg', 'mouse-logitech-g102', 'Flash sale mouse logitech g102', 1, 200000, 300000, 1, 15, 101, 600, 1, '2023-06-13 02:35:17', '2023-06-20 16:11:36', 1, 5),
-(8, 1, 'BR.06.005', 'Headset JBL Tune 110 - Black', 'uploads/BR.06.005__1.webp', 'uploads/BR.06.005__2.webp', 'assets/noimage.png', 'headset-jbl-tune-110-black', 'Flash Sale JBL Tune 110', 1, 90000, 130000, 1, 20, 116, 100, 1, '2023-06-13 02:38:07', '2023-06-20 16:21:01', 1, 18);
+(8, 1, 'BR.06.005', 'Headset JBL Tune 110 - Black', 'uploads/BR.06.005__1.webp', 'uploads/BR.06.005__2.webp', 'assets/noimage.png', 'headset-jbl-tune-110-black', 'Flash Sale JBL Tune 110', 1, 90000, 130000, 1, 20, 115, 100, 1, '2023-06-13 02:38:07', '2023-07-30 08:29:29', 1, 21);
 
 -- --------------------------------------------------------
 
@@ -324,15 +308,6 @@ CREATE TABLE `review` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `id_transaksi`, `id_produk`, `id_user`, `rate`, `catatan`, `created_at`, `updated_at`) VALUES
-(3, 1, 6, 6, 3, 'Cukuplah', '2023-06-20 16:11:58', '2023-06-20 16:11:58'),
-(4, 1, 8, 6, 5, 'mantap niy', '2023-06-20 16:14:20', '2023-06-20 16:14:20'),
-(5, 3, 8, 6, 5, 'mantap banget niy', '2023-06-20 16:15:32', '2023-06-20 16:15:32');
 
 -- --------------------------------------------------------
 
@@ -7956,18 +7931,6 @@ CREATE TABLE `transaksi` (
   `limit_datetime` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `id_user`, `tgl_transaksi`, `kode_transaksi`, `total_tagihan_produk`, `berat_produk_total`, `kurir_pilihan`, `kode_promo`, `total_ongkir`, `nominal_promo`, `total_transaksi`, `bukti_tf`, `rekening_tf`, `metode_bayar`, `catatan`, `status`, `no_resi`, `provinsi`, `kota`, `kecamatan`, `kode_pos`, `alamat_lengkap`, `no_hp`, `penerima`, `created_at`, `updated_at`, `limit_datetime`) VALUES
-(1, 6, '2023-06-19', 'TRX/06/2023/001', 20671000, 2600, 'JNE;OKE', 'TESTPROMO', 39000, 1033550, 19676450, 'uploads/bukti_tf/BUKTI_TF_c4ca4238a0b923820dcc509a6f75849b.jpeg', 'BCA : 01020304', 'TRANSFER', NULL, 'SELESAI', 'JNE1023230AWB', 9, 104, 1416, '43217', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123456', 'Aris Hasan', '2023-06-19 10:34:53', '2023-06-20 16:11:36', '2023-06-21 10:34:53'),
-(2, 6, '2023-06-19', 'TRX/06/2023/002', 24700000, 6000, 'JNE;REG', 'TESTPROMO', 90000, 1235000, 23555000, NULL, NULL, 'COD', NULL, 'CANCEL', NULL, 9, 104, 1416, '12345', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123456', 'Aris Hasan', '2023-06-19 10:43:32', '2023-06-20 15:06:02', NULL),
-(3, 6, '2023-06-20', 'TRX/06/2023/003', 104000, 100, NULL, NULL, 0, 0, 104000, NULL, NULL, 'DATANG_LANGSUNG', NULL, 'SELESAI', NULL, 9, 104, 1416, '12345', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123456', 'Aris Hasan', '2023-06-20 01:36:20', '2023-06-20 15:04:07', NULL),
-(4, 6, '2023-06-20', 'TRX/06/2023/004', 510000, 1200, 'JNE;OKE', NULL, 13000, 0, 523000, NULL, NULL, 'TRANSFER', NULL, 'MENUNGGU_PEMBAYARAN', NULL, 9, 104, 1416, '12345', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123833', 'Aris Hasan', '2023-06-20 04:44:14', '2023-06-20 04:44:14', '2023-06-21 04:44:14'),
-(5, 6, '2023-06-20', 'TRX/06/2023/005', 255000, 600, NULL, NULL, 0, 0, 255000, NULL, NULL, 'DATANG_LANGSUNG', NULL, 'DIPROSES', NULL, 9, 104, 1416, '43217', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123833', 'Aris Hasan', '2023-06-20 15:16:12', '2023-06-20 15:18:08', NULL),
-(6, 6, '2023-06-20', 'TRX/06/2023/006', 12000000, 800, 'JNE;OKE', NULL, 13000, 0, 12013000, NULL, NULL, 'COD', NULL, 'MENUNGGU_KONFIRMASI', NULL, 9, 104, 1416, '43217', 'Kp. Cilaku Babakan RT.02/01. Kec. Cilaku, Kab. Cianjur', '0838123833', 'Aris Hasan', '2023-06-20 15:17:42', '2023-06-20 15:17:42', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -8010,6 +7973,13 @@ CREATE TABLE `wishlist` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `id_user`, `id_produk`, `created_at`, `updated_at`) VALUES
+(9, 6, 6, '2023-07-30 08:10:39', '2023-07-30 08:10:39');
 
 --
 -- Indexes for dumped tables
@@ -8155,7 +8125,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `det_transaksi`
 --
 ALTER TABLE `det_transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -8173,7 +8143,7 @@ ALTER TABLE `kategori_produk`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `kode_promo`
@@ -8215,7 +8185,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -8227,7 +8197,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

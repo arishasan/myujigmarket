@@ -43,7 +43,7 @@ class TransaksiModel extends Model
 
         $bulan = date('m');
         $tahun = date('Y');
-        $default = 'TRX/'.$bulan.'/'.$tahun.'/001';
+        $default = 'ORD-'.$bulan.'-'.$tahun.'-001';
 
         $getExistingData = TransaksiModel::where(DB::raw('MONTH(tgl_transaksi)'), $bulan)->where(DB::raw('YEAR(tgl_transaksi)'), $tahun)->orderBy('created_at', 'desc');
         $temp = '';
@@ -53,10 +53,10 @@ class TransaksiModel extends Model
             $last_data = $getExistingData->first();
             $temp = $last_data->kode_transaksi;
 
-            $boom = explode("/", $temp);
+            $boom = explode("-", $temp);
             $increment = $boom[3] + 1;
 
-            $susun = 'TRX/'.$bulan.'/'.$tahun.'/'.str_pad($increment, 3, '0', STR_PAD_LEFT);
+            $susun = 'ORD-'.$bulan.'-'.$tahun.'-'.str_pad($increment, 3, '0', STR_PAD_LEFT);
             return $susun;
 
         }else{

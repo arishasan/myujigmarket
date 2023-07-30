@@ -7,7 +7,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -21,13 +21,16 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
     
     <div class="container">
         @include('admin.parts.feedback')
+
+        <h3>Pengaturan Alamat</h3>
+        <hr>
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -166,7 +169,7 @@
                                 </div>
 
                                 <div class="text-right">
-                                    <button class="btn">Simpan</button>
+                                    <button class="btn btn-success">Simpan</button>
                                 </div>
 
                             </form>

@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
@@ -98,7 +98,7 @@
                         ?>
 
                         <tr>
-                            <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#"></td>
+                            <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#" style="width: 100px; height: 100px"></td>
                             <td class="product-des" data-title="Description">
                                 <p class="product-name"><a href="javascript:void(0)">{{ $v->nama_produk }}</a></p>
                                 <p class="product-des"><small>{{ App\Models\HelperModel::truncate($v->deskripsi, 70) }}</small></p>
@@ -145,14 +145,14 @@
                                     <input type="hidden" id="id_kota" name="id_kota" value="{{ @$alamat_utama->kota ?? null}}">
                                     <input type="hidden" id="id_kec" name="id_kec" value="{{ @$alamat_utama->kecamatan ?? null}}">
 
-                                    <div class="input-group">
+                                    <div class="input-group" hidden>
                                         <input name="kupon" id="kupon" placeholder="Kode Voucher" class="form-control">
                                         <div class="input-group-append">
                                             <button type="button" id="cek_kupon" class="btn-outline-primary" style="height: 50px; width: 50px" type="button"><i class="fa fa-check"></i></button>
                                         </div>
                                     </div>
 
-                                    <br/>
+                                    <!-- <br/> -->
 
                                     <div class="card">
                                         <div class="card-body">
@@ -217,7 +217,7 @@
                                     <br/>
 
                                     <div class="button5">
-                                        <button type="button" class="btn text-white form-control" id="exec_simpan">Simpan <i class="fa fa-check"></i></button>
+                                        <button type="button" class="btn text-white btn-primary form-control" id="exec_simpan">Simpan <i class="fa fa-check"></i></button>
                                     </div>
                                 </div>
                             </div>

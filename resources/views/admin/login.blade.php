@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nusantara E-Commerce Admin | Login</title>
+  <title>myujigmarket Admin | Login</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,8 +23,8 @@
     <div class="card-header text-center">
       {{-- <a href="#" class="h4"><b>Nusantara</b> E-Commerce</a> <br/>
       Admin --}}
-      <img src="{{ asset('assets') }}/logoa.png" style="width: 100%; height: 100%" class="" alt="">
-      <b>E-Commerce Admin Area</b>
+      <img src="{{ asset('new') }}/images/mm.png" style="width: 100%; height: 100%" class="" alt="">
+      <!-- <b>Myujigmarket Admin Area</b> -->
     </div>
     <div class="card-body">
       <p class="login-box-msg">Masuk untuk memulai sesi anda</p>

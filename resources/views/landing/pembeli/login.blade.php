@@ -38,7 +38,7 @@
 
                         <br/>
 
-                        <button class="btn btn-primary form-control">Masuk <i class="fa fa-sign-in"></i></button>
+                        <button class="btn btn-primary text-white form-control">Masuk <i class="fa fa-sign-in"></i></button>
 
                     </form>
 

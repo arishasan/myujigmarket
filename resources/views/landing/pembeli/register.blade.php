@@ -46,7 +46,7 @@
 
                         <br/>
 
-                        <button class="btn btn-primary form-control">Daftar <i class="fa fa-sign-in"></i></button>
+                        <button class="btn btn-primary text-white form-control">Daftar <i class="fa fa-sign-in"></i></button>
 
                     </form>
 

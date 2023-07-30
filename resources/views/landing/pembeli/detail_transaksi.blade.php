@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Breadcrumbs -->
 
 <div class="shopping-cart section">
@@ -75,7 +75,7 @@
                         ?>
 
                         <tr>
-                            <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#"></td>
+                            <td class="image" data-title="No"><img src="{{ asset('') }}/{{ $v->image }}" alt="#" style="width: 100px; height: 100px"></td>
                             <td class="product-des" data-title="Description">
                                 <p class="product-name"><a href="javascript:void(0)">{{ $v->nama_produk }}</a></p>
                                 <p class="product-des"><small>{{ App\Models\HelperModel::truncate($v->deskripsi, 70) }}</small></p>
@@ -246,7 +246,7 @@
                                                 </select>
 
                                                 <br>
-                                                <button type="submit" class="btn text-white form-control" id="exec_simpan">Upload Bukti <i class="fa fa-upload"></i></button>
+                                                <button type="submit" class="btn text-white btn-primary form-control" id="exec_simpan">Upload Bukti <i class="fa fa-upload"></i></button>
                                             @elseif($transaksi->bukti_tf != '' || $transaksi->bukti_tf != null)
                                             
                                             <b>Bukti Transfer</b>
